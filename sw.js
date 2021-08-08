@@ -1,6 +1,6 @@
 const CACHE_NAME = 'sampleCache';
 const urlsToCache = [
-    "/",
+    "index.html",
     "./main.css",
     "./p.html"
 ];
