@@ -1,8 +1,18 @@
 <html>
 <head>
   <title>github pages test</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./main.css">
+  <script>
+    // service workerが有効なら、service-worker.js を登録します
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').then(function() { console.log('Service Worker Registered'); });
+    }
+  </script>
 </head>
 <body>
-  <h1>github pages test</h1>
+  <h1>Hello PWA.</h1>
+  <img src="./icon-192.png" alt="PWA logo" class="image" />
+  <a href="p.html">p.html</a>
 </body>
 </html>
