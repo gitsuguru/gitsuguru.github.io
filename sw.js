@@ -4,12 +4,14 @@ const cachePage = [
     "./main.css",
     "./p.html"
 ];
+// キャッシュ名を定義
+const CACHE_NAME = sampleCache1;
 
 self.addEventListener("install", function (event) {
     // 引数の処理が成功したかどうかを判定
     event.waitUntil(
         // 任意のcache名を定義(Cache API)
-        caches.open("sampleCache").then(function (cache) {
+        caches.open(CACHE_NAME).then(function (cache) {
             // cacheにファイルを定義
             return cache.addAll(cachePage);
         })
