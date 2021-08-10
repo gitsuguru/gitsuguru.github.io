@@ -5,7 +5,7 @@ const cachePage = [
     "./p.html"
 ];
 // キャッシュ名を定義
-const CACHE_NAME = sampleCache1;
+const CACHE_NAME = "sampleCache1";
 
 self.addEventListener("install", function (event) {
     // 引数の処理が成功したかどうかを判定
