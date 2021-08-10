@@ -16,11 +16,6 @@
         // service worker登録
         navigator.serviceWorker.register('/sw.js').then(function(registration) {
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          // service workerの更新を検知
-          registration.onupdatefound = function () {
-            console.log('Update');
-            registration.update();
-          }
         },
         function(err) {
           console.log('ServiceWorker registration failed: ', err);
