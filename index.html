@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>github pages test</title>
+  <title>PWA test</title>
   <!-- iOS設定 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#fc980c">
@@ -10,11 +10,16 @@
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./main.css">
   <script>
-    // service worker登録
+    // ブラウザーがサービスワーカーに対応しているかをチェック
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
+        // service worker登録
         navigator.serviceWorker.register('/sw.js').then(function(registration) {
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          registration.onupdatefound = function () {
+            console.log('Update');
+            registration.update();
+          }
         },
         function(err) {
           console.log('ServiceWorker registration failed: ', err);
@@ -24,7 +29,7 @@
   </script>
 </head>
 <body>
-  <h1>Hello PWA.</h1>
+  <h1>Hello PWA Test.</h1>
   <img src="./img/icon-192.png" alt="PWA logo" class="image" />
   <a href="p.html">p.html</a>
 </body>

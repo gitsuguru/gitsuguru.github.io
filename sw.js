@@ -1,5 +1,5 @@
 // cacheしたいファイルを定義
-const cache = [
+const cachePage = [
     "index.html",
     "./main.css",
     "./p.html"
@@ -8,10 +8,10 @@ const cache = [
 self.addEventListener("install", function (event) {
     // 引数の処理が成功したかどうかを判定
     event.waitUntil(
-        // 任意のcacheを定義
+        // 任意のcache名を定義(Cache API)
         caches.open("sampleCache").then(function (cache) {
             // cacheにファイルを定義
-            return cache.addAll(urlsToCache);
+            return cache.addAll(cachePage);
         })
     );
 });
