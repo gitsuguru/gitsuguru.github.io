@@ -6,10 +6,9 @@ const btn = document.querySelector('#btn');
 
 // WebWorkerを作成
 const worker = new Worker('worker.js');
-console.log(worker);
 // WebWorker側にデータを送信
 btn.addEventListener('click', () => {
-    worker.postMessage(num1.value, num2.value);
+    worker.postMessage([num1.value, num2.value]);
 })
 // WebWorkerよりデータを受信
 worker.onmessage = (event) => {
