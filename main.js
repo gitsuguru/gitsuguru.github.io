@@ -12,7 +12,7 @@ btn.addEventListener('click', () => {
     worker.postMessage(num1.value, num2.value);
 })
 // WebWorkerよりデータを受信
-worker.onmessage() = function(event) {
+worker.onmessage = (event) => {
     //結果を表示
     sum.textContent = event.data;
 }
