@@ -16,3 +16,4 @@ worker.onmessage = (event) => {
     //結果を表示
     sum.textContent = event.data;
 }
+
