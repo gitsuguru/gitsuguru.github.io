@@ -8,7 +8,7 @@ const btn = document.querySelector('#btn');
 const worker = new Worker('worker.js');
 // WebWorker側にデータを送信
 btn.addEventListener('click', () => {
-    worker.postMessage([num1.value, num2.value]);
+    worker.postMessage([Number(num1.value), Number(num2.value)]);
 })
 // WebWorkerよりデータを受信
 worker.onmessage = (event) => {
