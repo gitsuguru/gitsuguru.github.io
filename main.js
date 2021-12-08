@@ -1,19 +1,10 @@
-// 各DOMを取得
-const num1 = document.querySelector('#num1');
-const num2 = document.querySelector('#num2');
-const sum = document.querySelector('#sum');
-const btn = document.querySelector('#btn');
-
-// WebWorkerを作成
-const worker = new Worker('worker.js');
-// 送信ボタンを監視
-btn.addEventListener('click', () => {
-    // WebWorker側にデータを送信
-    worker.postMessage([Number(num1.value), Number(num2.value)]);
-})
-// WebWorkerよりデータを受信
-worker.onmessage = (event) => {
-    //結果を表示
-    sum.textContent = event.data;
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+        .register("worker.js")
+        .then((register) => {
+            console.log("登録に成功しました。：" + register);
+        })
+        .catch((error) => {
+            console.log("登録に失敗しました。：" + error);
+        });
 }
-
