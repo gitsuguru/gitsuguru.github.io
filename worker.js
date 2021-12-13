@@ -4,9 +4,9 @@ self.addEventListener("install", (event) => {
 });
 // Service Workerがactivateになった時の処理
 self.addEventListener("activate", (event) => {
-    event.waitUntil("アクティベート");
+    console.log("有効化");
 });
 // Service Workerがリソースのリクエストを検知した際の処理
 self.addEventListener("fetch", (event) => {
-    event.waitUntil("リソースのリクエストを検知");
+    console.log("処理(リクエスト検知)");
 });
