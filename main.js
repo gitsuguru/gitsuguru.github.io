@@ -4,7 +4,7 @@ btn.addEventListener("click", () => {
     push();
 });
 
-const push = () => {
+function push () {
     console.log(Notification.permission);
     if (Notification.permission == "default") {
         Notification.requestPermission();
