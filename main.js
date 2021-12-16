@@ -5,9 +5,10 @@ btn.addEventListener("click", () => {
 });
 
 const push = () => {
+    console.log(2);
     if (Notification.permission == "default") {
         Notification.requestPermission();
-        console.log(2);
+        console.log(3);
     } else if (Notification.permission == "granted") {
         new Notification("通知成功");
     } else {
