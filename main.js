@@ -11,7 +11,7 @@ function push() {
         Notification.requestPermission()
             .then(function (permission) {
                 if (permission == "granted") {
-                    new Notification("こんにちは");
+                    const notification = new Notification("こんにちは");
                     alert(1);
                 } else {
                     alert("通知が許可されていません");
