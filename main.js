@@ -9,13 +9,14 @@ function push() {
         alert("通知に対応していないブラウザです。");
     } else {
         if (Notification.permission == "default") {
+            // 通知許可を求める
             Notification.requestPermission();
-        }
-        if (Notification.permission == "granted") {
+        } else if (Notification.permission == "granted") {
             alert(1);
             new Notification("こんにちは");
         } else {
-            alert("通知が許可されていません"); // denied
+            // denied
+            alert("通知が許可されていません");
         }
     }
 };
