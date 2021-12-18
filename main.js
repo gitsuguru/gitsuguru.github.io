@@ -8,14 +8,17 @@ function push() {
     if (!("Notification" in window)) {
         alert("通知に対応していないブラウザです。");
     } else {
-        if (Notification.permission === "default") {
-            Notification.requestPermission();
-        } else if (Notification.permission === "granted") {
-            new Notification("通知成功");
-        } else {
-            alert("通知が許可されていません。");
+        switch (Notification.permission) {
+            case 'default':
+                Notification.requestPermission();
+                break;
+            case 'granted':
+                new Notification('こんにちは');
+                break;
+            case 'denied':
+                alert('通知が許可されていません');
+                break;
         }
-        alert("1");
     }
 };
 
