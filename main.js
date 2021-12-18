@@ -1,4 +1,4 @@
-const btn = document.querySelector('button');
+const btn = document.querySelector("button");
 btn.addEventListener("click", () => {
     push();
 });
@@ -8,16 +8,14 @@ function push() {
     if (!("Notification" in window)) {
         alert("通知に対応していないブラウザです。");
     } else {
-        if (Notification.permission == "default") {
-            // 通知許可を求める
-            Notification.requestPermission();
-        } else if (Notification.permission == "granted") {
-            alert(1);
-            new Notification("こんにちは");
-        } else {
-            // denied
-            alert("通知が許可されていません");
-        }
+        Notification.requestPermission()
+            .then(function (permission) {
+                if (permission == "granted") {
+                    new Notification("こんにちは");
+                    alert(1);
+                } else {
+                    alert("通知が許可されていません");
+                }
+            });
     }
-};
-
+}
