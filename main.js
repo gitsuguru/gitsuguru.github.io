@@ -2,7 +2,7 @@
 const btn = document.querySelector("button");
 // ページ表示時にプッシュ通知許可を得る
 window.addEventListener("load", () => {
-    if (("Notification" in window) && Notification.permission === "default") {
+    if ("Notification" in window && Notification.permission === "default") {
         Notification.requestPermission();
     }
 });
@@ -12,7 +12,7 @@ btn.addEventListener("click", () => {
 });
 // プッシュ通知が許可されていれば送信する
 function push() {
-    if (("Notification" in window) && Notification.permission === "granted") {
+    if ("Notification" in window && Notification.permission === "granted") {
         new Notification("送信されました", {
             body: "プッシュ通知が送信されました。",
         });
