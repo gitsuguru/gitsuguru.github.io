@@ -1,21 +1,16 @@
 const btn = document.querySelector("button");
+window.addEventListener("load", () => {
+    if (("Notification" in window) && Notification.permission === "default") {
+        Notification.requestPermission();
+    }
+});
 btn.addEventListener("click", () => {
     push();
 });
-
 function push() {
-    // ブラウザが通知をサポートしているか確認
-    if (!("Notification" in window)) {
-        alert("通知に対応していないブラウザです。");
+    if (("Notification" in window) && Notification.permission === "granted") {
+        new Notification('こんにちは');
     } else {
-        Notification.requestPermission()
-            .then(function (permission) {
-                if (permission == "granted") {
-                    const notification = new Notification("こんにちは");
-                    alert(1);
-                } else {
-                    alert("通知が許可されていません");
-                }
-            });
+        alert("通知に対応していないブラウザか、通知が許可されていません。");
     }
 }
