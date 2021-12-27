@@ -26,3 +26,4 @@ const cookie = document.querySelector('h1');
 // cookieに保存
 document.cookie = 'age = 27'; // ①
 document.cookie = `name = ${encodeURIComponent('すぐる')}`; // ②
+console.log(document.cookie);
