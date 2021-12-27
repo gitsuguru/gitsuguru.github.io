@@ -26,4 +26,22 @@ const cookie = document.querySelector('h1');
 // cookieに保存
 document.cookie = 'age = 27'; // ①
 document.cookie = `name = ${encodeURIComponent('すぐる')}`; // ②
-console.log(document.cookie);
+
+// cookieの取得
+const cookies = document.cookie;
+// ;毎に文字列を分割
+const cookieArray = cookies.split(";");
+// オブジェクトに変型
+let obj = {};
+cookieArray.forEach((element) => {
+    // =毎に文字列を分割
+    const itemArray = element.split("=");
+    // 文字列間の空白を削除
+    const key = itemArray[0].trim();
+    // デコード
+    const value = decodeURIComponent(itemArray[1]);
+    // オブジェクトに追加
+    obj[key] = value;
+});
+
+console.log(obj);
