@@ -1,16 +1,16 @@
-import { variable } from "./sub.js";
-import { object } from "./sub.js";
-import { testClass } from "./sub.js";
-import func from "./sub.js";
 
+// コンマ(,)区切りで同じファイルに定義されたモジュールを複数読み込む
+import { variable, object } from "./sub.js";
+// モジュール名 as 別名でモジュールを別名で読み込む
+import { testClass as mainTestClass } from "./sub.js";
+// モジュール名 as 別名でモジュールを別名で読み込む
+import * as main from "./sub.js";
+
+
+
+console.log(main);
+console.log(main.variable);
 console.log(variable);
 console.log(object);
-new testClass().testMethod();
+new mainTestClass().testMethod();
 
-func();
-
-
-
-
-// HTML type指定
-// ローカル環境×
